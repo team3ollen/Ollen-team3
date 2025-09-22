@@ -104,4 +104,16 @@ showSlide(slideIndex);
       el = el.parentElement;
     }
   })();
+
 })();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLeft = document.querySelector('.nav-left');
+  const navRight = document.querySelector('.nav-right');
+
+  navToggle.addEventListener('click', () => {
+    navLeft.classList.toggle('active');
+    navRight.classList.toggle('active');
+  });
+});
