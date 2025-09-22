@@ -513,319 +513,217 @@ footer {
 
 
 /* ===== Mobile: bottom sticky navbar + responsive adjustments ===== */
-@media (max-width: 768px) {
-  :root { --bottom-nav-height: 72px; }
-
-  /* keep content above the bottom nav (supports iOS safe area) */
-  body {
-    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
-  }
-  html {
-  zoom: 0.6; /* adjust between 0.5–0.8 */
-}
-
-
-  /* move navbar to bottom */
+@media (max-width: 480px) {
+  /* Navbar */
   .navbar {
-    position: fixed;      /* fixed so it stays visible while scrolling */
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: var(--bottom-nav-height);
-    background: linear-gradient(180deg, rgba(18,18,20,0.97), rgba(12,12,14,0.98));
-    border-top: 1px solid rgba(255,255,255,0.04);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 -8px 20px rgba(0,0,0,0.45);
-    z-index: 99999;
-    padding: 6px 10px;
+    height: 50px; /* Reduced height for compact look */
+    padding: 0 10px;
+    position: sticky;
+    top: 0;
+    background-color: #212529;
+    z-index: 9999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Softer shadow */
   }
 
-  /* inner layout becomes compact horizontal bar */
   .nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Spread logo and toggle */
     align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    padding: 0;
+    width: 100%;
+    padding: 0 5px;
   }
 
-  /* left and right groups become compact rows */
   .nav-left,
   .nav-right {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+    display: none; /* Hide nav links by default */
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background: #212529;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    z-index: 9998;
   }
-  .nav-left li,
-  .nav-right li { list-style: none; margin: 0; }
 
-  /* link appearance: vertical (icon-like + label) */
+  .nav-left.active,
+  .nav-right.active {
+    display: flex; /* Show when toggled */
+  }
+
   .nav-left a,
   .nav-right a {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: 11.5px;
-    min-width: 56px;
-    padding: 6px 6px;
-    color: #fff;
-    text-decoration: none;
-    line-height: 1;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* simple "icon" using a gradient block - replaceable with actual icons later */
-  .nav-left a::before,
-  .nav-right a::before {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 14px rgba(102,126,234,0.14);
-  }
-
-  /* Logo sits centered in the bar and is lifted slightly for emphasis */
-  .logo {
-    margin: 0;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-    border-radius: 12px;
-    transform: translateY(-18%);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
-  .logo img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* hide the desktop underline (saves space) */
-  .navbar a::after { display: none; }
-
-  /* dropdown content should appear above the bar (not behind it) */
-  .dropdown {
-    position: relative;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 8px); /* floats above the bottom bar */
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 220px;
-    max-width: calc(100vw - 24px);
-    background: #121214;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    z-index: 100000;
-  }
-  .dropdown:focus-within .dropdown-content,
-  .dropdown.open .dropdown-content { display: block; }
-
-  /* dropdown link styles for mobile */
-  .dropdown-content a {
-    display: block;
-    padding: 8px 12px;
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-  }
-
-  /* make hero/slider shorter on mobile so nav doesn't overlap content */
-  .slider { height: 50vh; }
-  .slider img { object-fit: cover; }
-
-  /* center hero text for mobile */
-  .hero{
-    max-height: 0vh;
-  }
-  .slider{
-    margin-top: -72px;
-  }
-  .hero-text_p1,
-  .hero-text_p2 {
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 40%;
-    text-align: center;
-    padding: 0 12px;
-  }
-  .hero-text_p1 h2, .hero-text_p2 h2 { font-size: 1.5rem; }
-  .hero-text_p1 p, .hero-text_p2 p { font-size: 0.95rem; }
-
-  /* stack project rows vertically */
-  .projects h2 {
-    margin-top: 5%;
-  }
-  .project-row {
-    flex-direction: column;
-    gap: 18px;
-    padding: 8px 14px;
-    text-align: left;
-  }
-  .project-row.reverse{
-    margin-left: 0px;
-  }
-  .project-card, .project-details {
+    font-size: 16px; /* Slightly larger for touch */
+    padding: 10px;
     width: 100%;
-    padding: 12px;
-  }
-  .project-card img { width: 100%; height: auto; border-radius: 12px; }
-
-  /* smaller footer layout */
-  .footer-grid {
-    padding: 22px 16px;
-    gap: 14px;
-    height: auto;
-  }
-  .footer-bottom { padding: 12px 8px; font-size: 0.9rem; }
-
-  /* ensure interactive areas are easy to tap */
-  .nav-left a, .nav-right a, .dropdown-content a {
-    touch-action: manipulation;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  /* ===== Extra Mobile Styles for All Sections ===== */
-
-
-  /* 🔹 Global text & spacing */
-  body {
-    font-size: 15px;
-    line-height: 1.5;
-  }
-  h2, h3, h4 { line-height: 1.3; }
-
-  /* 🔹 Hero Section */
-  .slider { height: 50vh; }
-  .slider img { object-fit: cover; }
-
-  .hero-text_p1, .hero-text_p2 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 0 12px;
-    width: 90%;
-  }
-  .hero-text_p1 h2, .hero-text_p2 h2 {
-    font-size: 1.5rem;
-  }
-  .hero-text_p1 p, .hero-text_p2 p {
-    font-size: 1rem;
+    color: #fff;
   }
 
-  /* 🔹 Slider Navigation Arrows */
-  .slider .prev, .slider .next {
-    font-size: 1.5rem;
-    padding: 6px;
-    top: auto;
-    bottom: 12px;
-    transform: none;
-    background: rgba(0,0,0,0.4);
-    border-radius: 6px;
+  /* Hamburger menu toggle */
+  .nav-toggle {
+    display: block; /* Show toggle button */
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+    background: none;
+    border: none;
+    padding: 5px;
   }
-  .slider .prev { left: 12px; }
-  .slider .next { right: 12px; }
 
-  /* 🔹 Slider Dots */
-  .dots { bottom: 8px; }
-  .dot { height: 10px; width: 10px; }
+  /* Logo */
+  .logo {
+    width: 60px; /* Smaller logo for mobile */
+    height: 30px;
+    margin: 0;
+  }
 
-  /* 🔹 Gallery Section */
-  .gallery {
-    padding: 20px 12px;
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
-  .gallery h2 {
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    text-align: center;
+
+  /* Dropdowns for mobile */
+  .dropdown-content {
+    position: static;
+    background: #333; /* Slightly lighter for contrast */
+    min-width: 100%;
+    border-radius: 4px;
+    box-shadow: none;
+    padding: 5px 0;
   }
-  .gallery-container {
-    display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 12px;
+
+  .dropdown-content a {
+    font-size: 14px;
+    padding: 8px 15px;
   }
-  .gallery-item {
-    flex: 0 0 80%;
-    scroll-snap-align: center;
-    border-radius: 12px;
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Hero Section */
+  .slider {
+    max-height: 30vh; /* Increased for better image visibility */
     overflow: hidden;
   }
-  .gallery-item img {
+
+  .slider img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 12px;
+    height: 100%;
+    object-fit: cover; /* Ensure images fill without distortion */
   }
 
-  /* 🔹 Projects Section */
-  .projects {
-    padding: 30px 12px;
+  .dron img {
+    object-fit: cover;
+    margin-top: 0; /* Remove negative margin for consistency */
+  }
+
+  .hero-text_p1,
+  .hero-text_p2,
+  .hero-text_p3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
+    color: #fff;
+    /* background: rgba(0, 0, 0, 0.5); Semi-transparent background for readability */
+    padding: 10px;
+    border-radius: 8px;
+    width: 90%; /* Prevent overflow */
   }
-  .projects h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+
+  .hero-text_p1 h2,
+  .hero-text_p2 h2,
+  .hero-text_p3 h2 {
+    font-size: 1.3rem; /* Smaller but readable */
+    margin-bottom: 5px;
   }
-  .project-row {
+
+  .hero-text_p1 p,
+  .hero-text_p2 p,
+  .hero-text_p3 p {
+    font-size: 0.9rem;
+  }
+
+  /* Navigation arrows and dots */
+  .slider .prev,
+  .slider .next,
+  .dots {
+    display: none; /* Keep hidden as in original */
+  }
+
+  /* Projects Section */
+  .projects {
+    padding: 30px 10px; /* Reduced padding */
+    margin-top: -20px;
+  }
+
+  .project-row,
+  .project-row.reverse {
     flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
+    margin-left: 0;
+    gap: 15px;
   }
-  .project-card, .project-details {
+
+  .project-card,
+  .project-details {
     width: 100%;
-    padding: 12px;
-    border-radius: 14px;
+    padding: 15px;
+    border-radius: 10px;
+    backdrop-filter: none; /* Remove blur for performance */
   }
+
   .project-card img {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-  .project-details h3 {
-    font-size: 1.2rem;
-  }
-  .project-details p {
-    font-size: 0.95rem;
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0;
   }
 
-  /* 🔹 Footer */
-  footer { padding-bottom: 80px; } /* keep space for bottom nav */
+  .project-card h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+
+  .project-details h3 {
+    font-size: 1.1rem;
+    padding-left: 10px;
+  }
+
+  .project-details h3::before {
+    width: 4px; /* Slightly thinner line */
+  }
+
+  .project-details p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  /* Footer */
   .footer-grid {
     grid-template-columns: 1fr;
-    text-align: center;
-    gap: 16px;
-    padding: 20px 16px;
-    height: auto;
+    padding: 20px 15px;
+    gap: 15px;
+    height: auto; /* Allow natural height */
   }
-  .footer-grid h4 { margin-bottom: 6px; }
-  .footer-grid ul { padding: 0; }
-  .footer-grid ul li { margin: 6px 0; }
-  .footer-bottom { padding: 10px; font-size: 0.85rem; }
 
+  .footer-grid h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-grid p,
+  .footer-grid ul li a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
 }
-
 
