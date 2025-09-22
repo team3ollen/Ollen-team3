@@ -10,7 +10,7 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
-  background: #000000;
+  background: #0a1128;
   color: #1a1a2e;
 }
 html {
@@ -726,4 +726,5 @@ footer {
     padding: 10px;
   }
 }
+
 
