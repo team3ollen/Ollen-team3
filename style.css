@@ -1,0 +1,831 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Body */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+  background: #000000;
+  color: #1a1a2e;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5pc;
+  width: 180px;
+  height: 130px;
+}
+.logo img{
+  width: 180px;
+  height: 12vh;
+  object-fit: cover;
+
+}
+
+/* Left and right groups */
+.nav-left,
+.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Links */
+.nav-left a,
+.nav-right a {
+  font-family: 'Poppins', sans-serif; /* Or Montserrat/Pacifico */
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #667eea;
+}
+
+
+
+/* Sticky navbar */
+.navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  background-color: #212529;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* inner layout */
+.nav-inner {
+  max-width: 1100px;
+  height: 12vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  gap: 1rem;
+}
+
+/* logo */
+.logo { font-weight: 700; font-size: 1.05rem; }
+
+/* links */
+.nav-links {
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-weight: 300;
+   font-size: large;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+}
+
+/* Reset styles for navbar links */
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: #fff; /* default link color */
+  font-weight: 800;
+  padding: 6px 10px;
+  display: inline-block;
+}
+/* underline (hidden by default) */
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* show underline on hover */
+.navbar a:hover::after {
+  width: 100%;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* mobile toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* fallback class when sticky is not supported or we use fixed */
+html.no-sticky .navbar,
+.navbar.fixed-fallback {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #1d1c1c;
+  min-width: 150px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Each link inside dropdown */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dropdown-content li :hover{
+  background-color: #333;
+  border-radius: 6px;
+}
+
+
+/* Show on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* hero section  */
+
+.hero-text_p1 {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  font-family:'Times New Roman', Times, serif;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  
+}
+.hero-text_p2 {
+  position: absolute;
+  top: 40%;
+  right: -5%;
+  font-family:'Times New Roman', Times, serif;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  
+}
+.hero-text_p3 {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+}
+.hero-text_p1,
+.hero-text_p2 {
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.hero-text_p1 h2, .hero-text_p2 h2 {
+  font-family: 'hesthiya';
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+@font-face {
+  font-family: 'Hestia';
+  src: url('assets/fonts/hestia.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Hestia', sans-serif;
+}
+
+
+.hero-text_p1, .hero-text_p2 p {
+  font-size: 1.2rem;
+}
+
+
+/* Hero section */
+/* Slider container */
+/* Slider container */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.dron img{
+  object-fit: fill;
+  margin-top: -180px;
+}
+
+/* Navigation arrows */
+.slider .prev, 
+.slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  /* font-weight: bold; */
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  text-decoration: none;
+  padding: 10px;
+}
+
+/* Position */
+.slider .prev {
+  left: 50px;
+}
+.slider .next {
+  right: 50px;
+}
+
+/* Hover effect */
+.slider .prev:hover,
+.slider .next:hover {
+  color: #667eea; /* gold highlight on hover */
+  transform: translateY(-50%) scale(1.2);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+/* Active click effect */
+.slider .prev:active,
+.slider .next:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+
+/* Dots */
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active, .dot:hover {
+  background:#667eea;
+}
+
+
+/* project section */
+
+/* Project One link always white */
+
+.project-card a {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* Even on hover/visited/active */
+.project-card h3 a:visited,
+.project-card h3 a:hover,
+.project-card h3 a:active {
+  color: #fff !important;
+  text-decoration: underline; /* optional */
+}
+
+
+
+
+.projects {
+  /* background: url("images/contact\ background.avif") no-repeat center center/cover; */
+  background-color: #212529;
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  color:rgb(223, 211, 49);
+  /* margin-bottom: 50px; */
+  position: relative;
+  z-index: 1;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+}
+
+/* Project Row */
+.project-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+
+
+/* Project Card */
+.project-card {
+  flex: 1;
+  background-color: #212529;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+  width: 50%;
+  height: 400px;
+  object-fit: fill;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.project-card h3 {
+  margin: 10px 0;
+  text-decoration: none;
+}
+
+
+
+/* Project Details */
+.project-details {
+  flex: 1;
+  background-color:#212529;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 25px 30px;
+  border-radius: 20px;
+  color: #fff;
+  position: relative;
+}
+
+.project-row.reverse{
+  margin-left: 80px;
+}
+/* Title */
+.project-details h3 {
+  margin-bottom: 15px;
+  font-size: 1.6rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Description */
+.project-details p {
+  font-size: 1.2rem;
+  color: #bbb;
+  line-height: 1.7;
+  opacity: 0.95;
+  /* text-shadow: 1px 1px 6px rgba(0,0,0,0.8); */
+  /* transition: all 0.3s ease-in-out; */
+}
+.project-details h3 {
+  position: relative;
+  font-weight: bold;
+  padding-left: 15px; /* space between line and text */
+}
+
+.project-details h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;   /* same height as the text */
+  width: 5px;     /* thickness of the line */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* your color */
+  border-radius: 3px;        /* optional smooth edges */
+}
+
+/* Footer */
+footer {
+  background: #000000;
+  color: #fff;
+  margin-top: 5px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px 50px;
+  height: 300px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+  color: #ff9800;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid ul li {
+  margin-bottom: 8px;
+}
+
+.footer-grid ul li a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-grid ul li a:hover {
+  color: #667eea;
+}
+
+.footer-bottom {
+  background: #111;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+
+
+
+/* ===== Mobile: bottom sticky navbar + responsive adjustments ===== */
+@media (max-width: 768px) {
+  :root { --bottom-nav-height: 72px; }
+
+  /* keep content above the bottom nav (supports iOS safe area) */
+  body {
+    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  }
+  html {
+  zoom: 0.6; /* adjust between 0.5–0.8 */
+}
+
+
+  /* move navbar to bottom */
+  .navbar {
+    position: fixed;      /* fixed so it stays visible while scrolling */
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bottom-nav-height);
+    background: linear-gradient(180deg, rgba(18,18,20,0.97), rgba(12,12,14,0.98));
+    border-top: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 -8px 20px rgba(0,0,0,0.45);
+    z-index: 99999;
+    padding: 6px 10px;
+  }
+
+  /* inner layout becomes compact horizontal bar */
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0;
+  }
+
+  /* left and right groups become compact rows */
+  .nav-left,
+  .nav-right {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-left li,
+  .nav-right li { list-style: none; margin: 0; }
+
+  /* link appearance: vertical (icon-like + label) */
+  .nav-left a,
+  .nav-right a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11.5px;
+    min-width: 56px;
+    padding: 6px 6px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* simple "icon" using a gradient block - replaceable with actual icons later */
+  .nav-left a::before,
+  .nav-right a::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 14px rgba(102,126,234,0.14);
+  }
+
+  /* Logo sits centered in the bar and is lifted slightly for emphasis */
+  .logo {
+    margin: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 12px;
+    transform: translateY(-18%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  }
+  .logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* hide the desktop underline (saves space) */
+  .navbar a::after { display: none; }
+
+  /* dropdown content should appear above the bar (not behind it) */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px); /* floats above the bottom bar */
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: calc(100vw - 24px);
+    background: #121214;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    z-index: 100000;
+  }
+  .dropdown:focus-within .dropdown-content,
+  .dropdown.open .dropdown-content { display: block; }
+
+  /* dropdown link styles for mobile */
+  .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  /* make hero/slider shorter on mobile so nav doesn't overlap content */
+  .slider { height: 50vh; }
+  .slider img { object-fit: cover; }
+
+  /* center hero text for mobile */
+  .hero{
+    max-height: 0vh;
+  }
+  .slider{
+    margin-top: -72px;
+  }
+  .hero-text_p1,
+  .hero-text_p2 {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    text-align: center;
+    padding: 0 12px;
+  }
+  .hero-text_p1 h2, .hero-text_p2 h2 { font-size: 1.5rem; }
+  .hero-text_p1 p, .hero-text_p2 p { font-size: 0.95rem; }
+
+  /* stack project rows vertically */
+  .projects h2 {
+    margin-top: 5%;
+  }
+  .project-row {
+    flex-direction: column;
+    gap: 18px;
+    padding: 8px 14px;
+    text-align: left;
+  }
+  .project-row.reverse{
+    margin-left: 0px;
+  }
+  .project-card, .project-details {
+    width: 100%;
+    padding: 12px;
+  }
+  .project-card img { width: 100%; height: auto; border-radius: 12px; }
+
+  /* smaller footer layout */
+  .footer-grid {
+    padding: 22px 16px;
+    gap: 14px;
+    height: auto;
+  }
+  .footer-bottom { padding: 12px 8px; font-size: 0.9rem; }
+
+  /* ensure interactive areas are easy to tap */
+  .nav-left a, .nav-right a, .dropdown-content a {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  /* ===== Extra Mobile Styles for All Sections ===== */
+
+
+  /* 🔹 Global text & spacing */
+  body {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  h2, h3, h4 { line-height: 1.3; }
+
+  /* 🔹 Hero Section */
+  .slider { height: 50vh; }
+  .slider img { object-fit: cover; }
+
+  .hero-text_p1, .hero-text_p2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 12px;
+    width: 90%;
+  }
+  .hero-text_p1 h2, .hero-text_p2 h2 {
+    font-size: 1.5rem;
+  }
+  .hero-text_p1 p, .hero-text_p2 p {
+    font-size: 1rem;
+  }
+
+  /* 🔹 Slider Navigation Arrows */
+  .slider .prev, .slider .next {
+    font-size: 1.5rem;
+    padding: 6px;
+    top: auto;
+    bottom: 12px;
+    transform: none;
+    background: rgba(0,0,0,0.4);
+    border-radius: 6px;
+  }
+  .slider .prev { left: 12px; }
+  .slider .next { right: 12px; }
+
+  /* 🔹 Slider Dots */
+  .dots { bottom: 8px; }
+  .dot { height: 10px; width: 10px; }
+
+  /* 🔹 Gallery Section */
+  .gallery {
+    padding: 20px 12px;
+  }
+  .gallery h2 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .gallery-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+  .gallery-item {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* 🔹 Projects Section */
+  .projects {
+    padding: 30px 12px;
+    text-align: center;
+  }
+  .projects h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  .project-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .project-card, .project-details {
+    width: 100%;
+    padding: 12px;
+    border-radius: 14px;
+  }
+  .project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+  .project-details h3 {
+    font-size: 1.2rem;
+  }
+  .project-details p {
+    font-size: 0.95rem;
+  }
+
+  /* 🔹 Footer */
+  footer { padding-bottom: 80px; } /* keep space for bottom nav */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 16px;
+    padding: 20px 16px;
+    height: auto;
+  }
+  .footer-grid h4 { margin-bottom: 6px; }
+  .footer-grid ul { padding: 0; }
+  .footer-grid ul li { margin: 6px 0; }
+  .footer-bottom { padding: 10px; font-size: 0.85rem; }
+
+}
+
+

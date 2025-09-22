@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ollen showcases innovative engineering projects by Team Ollen. Explore our professional solutions, designs, and creative ideas.">
+  <meta name="keywords" content="Ollen, engineering projects, innovation, technology, portfolio, team Ollen">
+  <meta name="author" content="Team Ollen">
+
+  <meta name="description" content="Explore innovative engineering projects, codes, and ideas by Nishant Pirke and team. Showcasing creative solutions for students and developers.">
+
+  <!-- Keywords (not very useful today, but doesn’t hurt) -->
+  <meta name="keywords" content="engineering projects, coding projects, electronics projects, Ollen, Nishant Pirke">
+
+   <!-- Open Graph (For Social Media Preview) -->
+  <meta property="og:title" content="Ollen – Innovative Engineering Projects">
+  <meta property="og:description" content="Explore Ollen's professional engineering projects and creative solutions.">
+  <meta property="og:image" content="https://Ollen.github.io/Team3-Ollen/images/preview.jpg">
+  <meta property="og:url" content="https://Ollen.github.io/Team3-Ollen/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ollen – Innovative Engineering Projects">
+  <meta name="twitter:description" content="Explore Ollen's professional engineering projects and creative solutions.">
+  <meta name="twitter:image" content="https://Ollen.github.io/Team3-Ollen/images/preview.jpg">
+
+
+  <link rel="icon" type="image/png" href="images/logo2.png">
+  <title>Ollen - About</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+  <style>
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}    
+ body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #212729;
+}
+
+ 
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5pc;
+  width: 180px;
+  height: 130px;
+}
+.logo img{
+  width: 180px;
+  height: 12vh;
+  object-fit: cover;
+
+}
+
+/* Left and right groups */
+.nav-left,
+.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Links */
+.nav-left a,
+.nav-right a {
+  font-family: 'Poppins', sans-serif; /* Or Montserrat/Pacifico */
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #667eea;
+}
+
+
+
+/* Sticky navbar */
+.navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  background-color: #212529;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* inner layout */
+.nav-inner {
+  max-width: 1100px;
+  height: 12vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  gap: 1rem;
+}
+
+/* logo */
+.logo { font-weight: 700; font-size: 1.05rem; }
+
+/* links */
+.nav-links {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 300;
+  font-size: large;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+}
+/* Reset styles for navbar links */
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: #fff; /* default link color */
+  font-weight: 800;
+  padding: 6px 10px;
+  display: inline-block;
+}
+/* underline (hidden by default) */
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+/* show underline on hover */
+.navbar a:hover::after {
+  width: 100%;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* mobile toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* fallback class when sticky is not supported or we use fixed */
+html.no-sticky .navbar,
+.navbar.fixed-fallback {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* small mobile adjustments */
+@media (max-width: 840px) {
+  :root { --bottom-nav-height: 72px; }
+
+  /* keep content above the bottom nav (supports iOS safe area) */
+  body {
+    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* move navbar to bottom */
+  .navbar {
+    position: fixed;      /* fixed so it stays visible while scrolling */
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bottom-nav-height);
+    background: linear-gradient(180deg, rgba(18,18,20,0.97), rgba(12,12,14,0.98));
+    border-top: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 -8px 20px rgba(0,0,0,0.45);
+    z-index: 99999;
+    padding: 6px 10px;
+  }
+
+  /* inner layout becomes compact horizontal bar */
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 0;
+  }
+
+  /* left and right groups become compact rows */
+  .nav-left,
+  .nav-right {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-left li,
+  .nav-right li { list-style: none; margin: 0; }
+
+  /* link appearance: vertical (icon-like + label) */
+  .nav-left a,
+  .nav-right a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-size: 11.5px;
+    min-width: 56px;
+    padding: 6px 6px;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* simple "icon" using a gradient block - replaceable with actual icons later */
+  .nav-left a::before,
+  .nav-right a::before {
+    content: "";
+    display: block;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 14px rgba(102,126,234,0.14);
+  }
+
+  /* Logo sits centered in the bar and is lifted slightly for emphasis */
+  .logo {
+    margin: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 12px;
+    transform: translateY(-18%);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  }
+  .logo img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* hide the desktop underline (saves space) */
+  .navbar a::after { display: none; }
+
+  /* dropdown content should appear above the bar (not behind it) */
+  .dropdown {
+    position: relative;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 8px); /* floats above the bottom bar */
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 220px;
+    max-width: calc(100vw - 24px);
+    background: #121214;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    z-index: 100000;
+  }
+  .dropdown:focus-within .dropdown-content,
+  .dropdown.open .dropdown-content { display: block; }
+
+  /* dropdown link styles for mobile */
+  .dropdown-content a {
+    display: block;
+    padding: 8px 12px;
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+  }
+  /* smaller footer layout */
+  .footer-grid {
+    padding: 22px 16px;
+    gap: 14px;
+    height: 30%;
+  }
+  .footer-bottom { padding: 12px 8px; font-size: 0.9rem; }
+
+  /* ensure interactive areas are easy to tap */
+  .nav-left a, .nav-right a, .dropdown-content a {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #111;
+  min-width: 130px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Each link inside dropdown */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dropdown-content li :hover{
+  background-color: #333;
+  border-radius: 6px;
+}
+
+
+/* Show on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+      .about-section {
+      padding: 60px 20px;
+      background: #020618;
+      text-align: center;
+    }
+
+    .about-section .container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .about-section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #667eea;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    .about-section p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #aca0a0;
+      margin-bottom: 15px;
+    }
+    /* Back to home button */
+    .back-home {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 25px;
+      transition: background 0.3s;
+    }
+
+
+    .back-home:hover {
+      background: linear-gradient(135deg, #142158 0%, #36105c 100%);
+    }
+
+/* ================= Team Section ================= */
+.team-section {
+  padding: 60px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.team-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+.team-section h2 svg {
+  margin-bottom: -8px;
+}
+
+.team-intro {
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.member-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 24px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.member-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 3px solid #667eea;
+}
+
+.member-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+  color: #222;
+}
+
+.member-card .role {
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.member-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* 📱 Mobile Friendly */
+@media (max-width: 768px) {
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .member-card {
+    width: 90%;
+  }
+}
+
+
+    /* Footer */
+footer {
+  background: #000000;
+  color: #fff;
+  margin-top: 40px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px 50px;
+  height: 300px;
+}
+
+.footer-grid h4 {
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid ul li {
+  margin-bottom: 8px;
+}
+
+.footer-grid ul li a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-grid ul li a:hover {
+  color: #667eea;
+}
+
+.footer-bottom {
+  background: #111;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+  </style>
+</head>
+<body>
+      <!-- Navbar (put this at the top of <body>) -->
+ <!-- Navbar (put this at the top of <body>) -->
+<nav id="site-navbar" class="navbar">
+  <div class="nav-inner">
+    <!-- Left side -->
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+
+    <!-- Center logo -->
+    <div class="logo">
+      <img src="images/Ollen_20250915_161534_0000[1].png" alt="ollen">
+    </div>
+
+    <!-- Right side -->
+    <ul class="nav-right">
+      <li class="dropdown">
+  <a href="#">Projects ▾</a>
+  <ul class="dropdown-content">
+    <li><a href="project1.html">Project One</a></li>
+    <li><a href="project2.html">Project Two</a></li>
+    <li><a href="project3.html">Project Three</a></li>
+  </ul>
+</li>
+
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="T&C.html">T&C</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About This Website</h2>
+      <p>
+        Welcome to <strong>Ollen</strong> 🚀 — a platform created to showcase the projects we built during our
+        <strong>engineering days</strong>.
+      </p>
+      <p>
+        Here, you will find detailed information about each project, including the idea, design, implementation,
+        and outcomes.
+      </p>
+      <p>
+        This website is not just a collection of project files — it is a <strong>digital archive of creativity and innovation</strong>
+        where students can preserve their work and inspire others with their engineering journey.
+      </p>
+      <p>
+        Whether it’s <strong>electronics, coding, mechanical designs, or IoT projects</strong>, you’ll discover everything in one place.
+        The goal is to make knowledge-sharing easier and motivate new learners with real project examples.
+      </p>
+    </div>
+  </section>
+  <!-- peoples info  -->
+   <!-- ================= Team Section ================= -->
+<section id="team-section" class="team-section">
+  <h2><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+    <path d="M320 64C355.3 64 384 92.7 384 128C384 163.3 355.3 192 320 192C284.7 192 256 163.3 256 128C256 92.7 284.7 64 320 64zM416 376C416 401 403.3 423 384 435.9L384 528C384 554.5 362.5 576 336 576L304 576C277.5 576 256 554.5 256 528L256 435.9C236.7 423 224 401 224 376L224 336C224 283 267 240 320 240C373 240 416 283 416 336L416 376zM160 96C190.9 96 216 121.1 216 152C216 182.9 190.9 208 160 208C129.1 208 104 182.9 104 152C104 121.1 129.1 96 160 96zM176 336L176 368C176 400.5 188.1 430.1 208 452.7L208 528C208 529.2 208 530.5 208.1 531.7C199.6 539.3 188.4 544 176 544L144 544C117.5 544 96 522.5 96 496L96 439.4C76.9 428.4 64 407.7 64 384L64 352C64 299 107 256 160 256C172.7 256 184.8 258.5 195.9 262.9C183.3 284.3 176 309.3 176 336zM432 528L432 452.7C451.9 430.2 464 400.5 464 368L464 336C464 309.3 456.7 284.4 444.1 262.9C455.2 258.4 467.3 256 480 256C533 256 576 299 576 352L576 384C576 407.7 563.1 428.4 544 439.4L544 496C544 522.5 522.5 544 496 544L464 544C451.7 544 440.4 539.4 431.9 531.7C431.9 530.5 432 529.2 432 528zM480 96C510.9 96 536 121.1 536 152C536 182.9 510.9 208 480 208C449.1 208 424 182.9 424 152C424 121.1 449.1 96 480 96z"/></svg> Our Team</h2>
+  <p class="team-intro">
+    Ollen is powered by a passionate team of innovators who contribute their unique skills to bring our projects to life.
+  </p>
+
+  <div class="team-cards">
+    <!-- Person 1 -->
+    <div class="member-card">
+      <img src="images/Parth_pahanpate.jpg" alt="Parth Pahanpate">
+      <h3>Parth Pahanpate</h3>
+      <p class="role">Creative Lead • Designer</p>
+      <p>
+        Parth designed the Ollen logo and named the brand. He plays a key role in solving project challenges and provides 
+        valuable creative ideas to enhance project outcomes.
+      </p>
+    </div>
+
+    <!-- Person 2 -->
+    <div class="member-card">
+      <img src="images/my_image_profile.jpg" alt="Nishant Pirke">
+      <h3>Nishant Pirke </h3>
+      <p class="role">Founder • Tech Master</p>
+      <p>
+       Nishant is the creator of this website and a master in technology. 
+        He leads the technical side, ensuring smooth development and contributes to building innovative projects.
+      </p>
+    </div>
+
+    <!-- Person 3 -->
+    <div class="member-card">
+      <img src="images/Ayush_bhujade.jpg" alt="Ayush Bhujade">
+      <h3>Ayush Bhujade</h3>
+      <p class="role">Project Strategist</p>
+      <p>
+        Ayush contributes detailed project insights and innovative ideas. His strong understanding of project information 
+        helps guide the team towards impactful results.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <a href="index.html" class="back-home">⬆ Back to Home</a>
+
+
+  <!-- 🔹 Footer Info Section (Like Amazon) -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>About Me</h4>
+        <p>Showcasing innovative engineering projects and creative ideas through Ollen.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="T&C.html">T&C</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        
+        <p><!-- Simple Email Icon -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="20" height="18" viewBox="0 0 24 20" 
+     fill="none" stroke="#0b63d6" stroke-width="2.5" 
+     stroke-linecap="round" stroke-linejoin="round"
+     aria-hidden="true">
+  <rect x="2" y="4" width="20" height="16" rx="2"/>
+  <path d="M2 6l10 7 10-7"/>
+</svg> <a href="mailto:team3.ollen@gmail.com?subject=Project%20Inquiry&body=Hello%20Team%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20projects.">
+  Team3.Ollen@gmail.com
+</a></p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="red" viewBox="0 0 384 512">
+  <path d="M168 0C75.2 0 0 75.2 0 168c0 87.5 154.1 326.4 160.6 336.5 4.5 6.9 15.2 6.9 19.7 0C229.9 494.4 384 255.5 384 168 384 75.2 308.8 0 216 0zM192 240c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z"/>
+</svg>
+ Chandrapur-442401, Maharashtra, India.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ollen | All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

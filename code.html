@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program code</title>
+</head>
+<body>
+    <pre>include < ESP32Servo.h>
+
+Servo servo1;
+
+// Pin definitions (ESP32 GPIO numbers)
+const int trigPin  = 5;     // Ultrasonic Trigger
+const int echoPin  = 18;    // Ultrasonic Echo
+const int servoPin = 19;    // Servo
+const int potPin   = 34;    // Soil sensor (ADC1)
+
+// Constants
+const int maxDryValue   = 10;    // threshold: >10 = wet
+const int UltraDistance = 15;    // cm#
+
+// Variables
+long duration;
+int distance = 0;
+int soil = 0;
+int fsoil = 0;
+
+// Timing variables (non-blocking)
+unsigned long previousSensorMillis = 0;
+unsigned long sensorInterval = 500;  // check every 500ms
+
+unsigned long previousServoMillis = 0;
+unsigned long servoHoldTime = 3000;  // how long servo stays at position
+
+bool servoActive = false;
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  servo1.attach(servoPin);
+  servo1.write(90);  // neutral
+
+  Serial.println("Non-blocking ESP32 Waste Segregator Ready");
+}
+
+void loop() {
+  unsigned long currentMillis = millis();
+
+  // === SENSOR READ (every 500ms) ===
+  if (currentMillis - previousSensorMillis >= sensorInterval && !servoActive) {
+    previousSensorMillis = currentMillis;
+
+    // Ultrasonic distance
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(2);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+
+    duration = pulseIn(echoPin, HIGH, 30000);  // 30ms timeout (~5m range)
+    if (duration > 0) {
+      distance = duration * 0.034 / 2;
+    } else {
+      distance = 999;  // no echo
+    }
+
+    // Soil only if object is detected
+    if (distance < UltraDistance && distance > 1) {
+      fsoil = 0;
+      for (int i = 0; i < 3; i++) {
+        soil = analogRead(potPin);        // ESP32 ADC: 0–4095
+        soil = constrain(soil, 1000, 4095);
+        fsoil += map(soil, 1000, 4095, 100, 0);
+      }
+      fsoil = fsoil / 3;
+
+      Serial.print("Humidity: ");
+      Serial.print(fsoil);
+      Serial.print("%   Distance: ");
+      Serial.print(distance);
+      Serial.print(" cm");
+
+      if (fsoil > maxDryValue) {
+        Serial.println("  ==> WET Waste");
+        servo1.write(10);
+      } else {
+        Serial.println("  ==> DRY Waste");
+        servo1.write(170);
+      }
+
+      servoActive = true;                 // servo moved
+      previousServoMillis = currentMillis; 
+    }
+  }
+
+  // === RESET SERVO AFTER HOLD TIME ===
+  if (servoActive && currentMillis - previousServoMillis >= servoHoldTime) {
+    servo1.write(90);     // reset
+    servoActive = false;
+  }
+}</pre>
+</body>
+</html>

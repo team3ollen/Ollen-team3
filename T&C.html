@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/png" href="images/logo2.png">
+  <title>Ollen - Terms &amp; Conditions — [Your Website Name]</title>
+  <style>
+    /* Dark mode styling — clean and readable */
+    :root{
+      --bg: #0b0f17;
+      --panel: #0f1720;
+      --muted: #9aa6bf;
+      --text: #e6eef8;
+      --accent: #667eea;
+      --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --hr: rgba(255,255,255,0.04);
+    }
+    
+ 
+
+  .logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5pc;
+  width: 150px;
+  height: 130px;
+}
+.logo img{
+  width: 10vw;
+  height: 10vh;
+  object-fit: cover;
+  margin-left: -80px;
+  border-radius: 10px;
+}
+  /* back vutton */
+
+  .back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+  }
+
+  .back-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  }
+
+
+    /* Reset & layout */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg), #071023);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+    }
+
+    .wrap {
+      max-width: 980px;
+      margin: 36px auto;
+      padding: 28px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 6px 30px rgba(6,10,20,0.6);
+      border-radius: 12px;
+      padding: 28px;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .logo {
+      width:56px;
+      height:56px;
+      border-radius:10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg, rgba(102,126,234,0.16), rgba(102,126,234,0.08));
+      border: 1px solid rgba(102,126,234,0.12);
+      color:var(--accent);
+      font-weight:700;
+      font-size:18px;
+    }
+
+    h1 {
+      margin:0;
+      font-size:20px;
+      color:var(--text);
+      letter-spacing: -0.2px;
+    }
+
+    .meta {
+      color:var(--muted);
+      font-size:13px;
+      margin-top:6px;
+    }
+
+    hr.sep {
+      height:1px;
+      border:0;
+      background: var(--hr);
+      margin:22px 0;
+      border-radius:2px;
+    }
+
+    h2 {
+      color:var(--text);
+      font-size:16px;
+      margin-top:18px;
+      margin-bottom:8px;
+    }
+
+    p, li {
+      color:var(--muted);
+      font-size:15px;
+      margin:10px 0;
+    }
+
+    ul { padding-left:20px; }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .note {
+      background: linear-gradient(90deg, rgba(102,126,234,0.06), rgba(102,126,234,0.02));
+      border-left: 4px solid var(--accent);
+      padding:14px 16px;
+      color: var(--text);
+      border-radius:6px;
+      margin-top:18px;
+    }
+
+    footer {
+      margin-top:22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .contact {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .copyright {
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Responsive */
+    @media (max-width:700px){
+      .wrap{padding:18px;margin:18px}
+      h1{font-size:18px}
+      .logo{width:48px;height:48px;font-size:16px}
+    }
+  </style>
+</head>
+<body>
+      <!-- Back Button -->
+<a href="index.html" class="back-btn">&#8592;</a>
+  <div class="wrap">
+    <div class="panel">
+      <header>
+         <div class="logo">
+            <img src="images/Ollen_20250915_161534_0000[1].png" alt="ollen">
+         </div>
+        <div>
+          <h1>Terms &amp; Conditions</h1>
+          <div class="meta">Last updated: <strong>September 13, 2025</strong></div>
+        </div>
+      </header>
+
+      <p>Welcome to <strong>Ollen</strong> — a website maintained by <strong>Team3-Ollen</strong> that showcases engineering projects developed by our team. By accessing or using this website you agree to be bound by these Terms &amp; Conditions. If you do not agree with any part of these terms, please do not use the website.</p>
+
+      <hr class="sep">
+
+      <h2>1. Purpose of the Website</h2>
+      <p>The website is a public portfolio and project showcase for engineering projects produced by our team. We publish project descriptions, images, diagrams, code snippets, videos, and other related materials to inform, demonstrate skills, and share knowledge with visitors.</p>
+
+      <h2>2. Ownership and Copyright</h2>
+      <p>All original content on this website — including project write-ups, original photographs, images created by the team, source code snippets marked as authored by us, diagrams, and design assets — is the intellectual property of <strong>Team3-Ollen</strong> unless otherwise noted. You may not copy, reproduce, republish, distribute, modify, or create derivative works of our content for commercial use without our express written permission.</p>
+      <p>We sometimes use images, icons, or media from third parties. When third-party material is used, we provide attribution or a caption indicating the original owner where required. If you believe a credited or uncredited image or other content infringes your rights, please contact us (see <em>Contact</em> below) and we will review and act promptly.</p>
+
+      <h2>3. Allowed Uses / Visitor Permission</h2>
+      <p>You are permitted to view, read, and reuse the ideas, concepts, and non-restricted media on this site for personal, educational, and non-commercial purposes, provided you give appropriate credit to the authors and do not present the material as your own original work. For any reuse beyond that (for example, commercial reuse), you must obtain our written permission.</p>
+      <p>When reusing code snippets or project ideas, please keep any attached copyright notices intact and include a clear attribution reference back to this website.</p>
+
+      <h2>4. User-Provided Material & Comments</h2>
+      <p>If the website includes a section for user contributions (comments, feedback, or content uploads), by submitting you grant us a non-exclusive, worldwide, royalty-free, transferable license to use, reproduce, modify, publish, and display that content in connection with the website. You confirm you have the rights to submit the material and that the material does not violate any law or third-party rights.</p>
+
+      <h2>5. No Personal Data Collection</h2>
+      <p>We do not collect personal data from visitors by default. If you contact us directly via the contact details provided on the site (for example by email), you voluntarily provide contact information in that message which we may use to respond. For clarity: this website does not require registration, and no user accounts are created on the site unless explicitly stated elsewhere on the site.</p>
+
+      <h2>6. External Links & Third-Party Content</h2>
+      <p>The website may contain links to third-party websites, libraries, or external resources for reference or convenience. We do not control and are not responsible for the content, policies, or practices of those external sites. Linking to an external site does not imply endorsement. Visitors should review each external site's own terms and privacy policies before interacting with them.</p>
+
+      <h2>7. Disclaimer of Warranties</h2>
+      <p>All content on this website is provided <em>as is</em> and for informational purposes only. While we strive for accuracy, we make no warranties — express or implied — about the completeness, accuracy, reliability, suitability, or availability of the information. Use of the site and reliance on any content is at your own risk. We expressly disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+
+      <h2>8. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, <strong>Team3-Ollen</strong> and its team shall not be liable for any direct, indirect, incidental, consequential, special, punitive, or exemplary damages arising from the use of, or inability to use, the website or any content on it — including but not limited to loss of profits, loss of data, business interruption, or personal injury — even if we have been advised of the possibility of such damages. This limitation applies whether the claim is based on contract, tort, negligence, strict liability, or any other legal theory.</p>
+
+      <h2>9. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless <strong>Team3-Ollen</strong>, its officers, members, employees, and agents from any claim, demand, loss, liability, or expense (including reasonable attorney fees) arising out of or related to your breach of these Terms, your misuse of the site, or your violation of any rights of a third party.</p>
+
+      <h2>10. Termination</h2>
+      <p>We reserve the right, without notice and at our sole discretion, to restrict, suspend, or terminate your access to the website (or any part of it) for any reason, including if we believe you are violating these Terms or infringing the rights of others.</p>
+
+      <h2>11. Governing Law & Jurisdiction</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising in connection with these Terms or your use of the website shall be subject to the exclusive jurisdiction of the courts located in <strong>Chandrapur-442401, Maharashtra, India</strong>, India, to the fullest extent permitted by law.</p>
+
+      <h2>12. Changes to These Terms</h2>
+      <p>We may update or modify these Terms at any time by posting a revised version on this page. Changes take effect immediately on posting. Your continued use of the website after the posting of updated Terms constitutes acceptance of those changes.</p>
+
+      <h2>13. Contact</h2>
+      <p>If you have any questions, concerns, or requests regarding these Terms, copyright concerns, or removal requests for images or content, please contact us at:</p>
+      <p class="contact"><strong>Email:</strong> <a href="mailto:team3.ollen@gmail.com?subject=Project%20Inquiry&body=Hello%20Team%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20projects.">team3.ollen@gmail.com</a><br>
+         <strong>Address:</strong> Chandrapur-442401,Maharashtra, India</p>
+
+      <hr class="sep">
+
+      <div class="note">
+        <strong>Important:</strong> By accessing and using this website, you agree that all content, including project details, images, and related information, is owned by our team. Unauthorized use, reproduction, or distribution of any material without prior permission is strictly prohibited.
+      </div>
+
+      <footer>
+        <div class="copyright">© <span id="year"></span> <strong>Ollen</strong>. All rights reserved.</div>
+        <div style="color:var(--muted);font-size:13px">Last updated: <strong>Sep 13, 2025</strong></div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // fill current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

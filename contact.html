@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Ollen showcases innovative engineering projects by Team Ollen. Explore our professional solutions, designs, and creative ideas.">
+  <meta name="keywords" content="Ollen, engineering projects, innovation, technology, portfolio, team Ollen">
+  <meta name="author" content="Team Ollen">
+
+  <meta name="description" content="Explore innovative engineering projects, codes, and ideas by Nishant Pirke and team. Showcasing creative solutions for students and developers.">
+
+  <!-- Keywords (not very useful today, but doesn’t hurt) -->
+  <meta name="keywords" content="engineering projects, coding projects, electronics projects, Ollen, Nishant Pirke">
+
+  
+  <!-- Open Graph (For Social Media Preview) -->
+  <meta property="og:title" content="Ollen – Innovative Engineering Projects">
+  <meta property="og:description" content="Explore Ollen's professional engineering projects and creative solutions.">
+  <meta property="og:image" content="https://Ollen.github.io/Team3-Ollen/images/preview.jpg">
+  <meta property="og:url" content="https://Ollen.github.io/Team3-Ollen/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ollen – Innovative Engineering Projects">
+  <meta name="twitter:description" content="Explore Ollen's professional engineering projects and creative solutions.">
+  <meta name="twitter:image" content="https://Ollen.github.io/Team3-Ollen/images/preview.jpg">
+  <title>Ollen - Contact</title>
+  <link rel="icon" type="image/png" href="images/logo2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="contactcoopy.css">
+</head>
+<body>
+    <style>
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}      
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Navbar */
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5pc;
+  width: 180px;
+  height: 130px;
+}
+.logo img{
+  width: 180px;
+  height: 12vh;
+  object-fit: cover;
+
+}
+
+/* Left and right groups */
+.nav-left,
+.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Links */
+.nav-left a,
+.nav-right a {
+  font-family: 'Poppins', sans-serif; /* Or Montserrat/Pacifico */
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #667eea;
+}
+
+
+
+/* Sticky navbar */
+.navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  top: 0;
+  width: 100%;
+  height: 12vh;
+  background-color: #212529;
+  color: #fff;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* inner layout */
+.nav-inner {
+  max-width: 1100px;
+  height: 12vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  gap: 1rem;
+}
+
+/* logo */
+.logo { font-weight: 700; font-size: 1.05rem; }
+
+/* links */
+.nav-links {
+   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-weight: 300;
+   font-size: large;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0;
+}
+/* Reset styles for navbar links */
+.navbar a {
+  position: relative;
+  text-decoration: none;
+  color: #fff; /* default link color */
+  font-weight: 800;
+  padding: 6px 10px;
+  display: inline-block;
+}
+/* underline (hidden by default) */
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+
+/* show underline on hover */
+.navbar a:hover::after {
+  width: 100%;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+.nav-links li a:hover,
+.nav-links li a.active {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* mobile toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* fallback class when sticky is not supported or we use fixed */
+html.no-sticky .navbar,
+.navbar.fixed-fallback {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+/* small mobile adjustments */
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #111;
+  min-width: 130px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+/* Each link inside dropdown */
+.dropdown-content li {
+  list-style: none;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.dropdown-content li :hover{
+  background-color: #333;
+  border-radius: 6px;
+}
+
+
+/* Show on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Contact Section */
+/* .contact-section { */
+  /* max-width: 100%; */
+  /* height: 600px; */
+  /* height: 60vh; */
+  /* margin: 40px auto; */
+  /* padding: 20px; */
+  /* background: #fff; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.contact-info p {
+  font-size: 18px;
+  margin: 10px 0;
+} */
+
+.map {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  /* border-radius: 10px; */
+  /* height: 500px; */
+  /* overflow: hidden; */
+}
+iframe{
+  height: 465px;
+  margin-bottom: 0px;
+}
+
+/* contact bacckground */
+.contact_bg{
+  background-image: url("images/contact_bg.jpg");
+  object-fit: fill;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 33px;
+  
+}
+.contact_bg h1{
+   position: relative;
+  top: 20px;
+  color: rgb(19, 54, 167);
+  font-family: "Playfair Display",serif;
+
+}
+
+
+.contact-form-section{
+  width: 500px;
+  height: 700px;
+  border-radius: 0px, 10px, 0px, 10px;
+}
+.contact-form-section img{
+  width: 450px;
+  height: 655px;
+  object-fit: fill;
+  border-radius: 0px, 10px, 0px, 10px;
+
+}
+
+.contact-text a p:visited,
+.contact-text a p:hover,
+.contact-text a p:active{
+  color: white !important;
+  text-decoration: none;
+}
+.contact-text a{
+  text-decoration: none;
+}
+/* Footer */
+footer {
+  background: #000000;
+  color: #fff;
+  margin-top: 0px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 40px 50px;
+  height: 300px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 10px;
+  color: #ff9800;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid ul li {
+  margin-bottom: 8px;
+}
+
+.footer-grid ul li a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-grid ul li a:hover {
+  color: #667eea;
+}
+
+.footer-bottom {
+  background: #111;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+    </style>
+
+  <!-- Navbar -->
+  <!-- Navbar (put this at the top of <body>) -->
+<nav id="site-navbar" class="navbar">
+  <div class="nav-inner">
+    <!-- Left side -->
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+
+    <!-- Center logo -->
+    <div class="logo" id="top">
+      <img src="images/Ollen_20250915_161534_0000[1].png" alt="ollen">
+    </div>
+
+    <!-- Right side -->
+    <ul class="nav-right">
+      <li class="dropdown">
+  <a href="#">Projects ▾</a>
+  <ul class="dropdown-content">
+    <li><a href="project1.html">Project One</a></li>
+    <li><a href="project2.html">Project Two</a></li>
+    <li><a href="project3.html">Project Three</a></li>
+  </ul>
+</li>
+
+      <li><a href="contact.html" id="contact-link">Contact</a></li>
+      <li><a href="T&C.html">T&C</a></li>
+    </ul>
+  </div>
+</nav>
+
+   <div class="contact_bg"><h1></h1></div>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="contact-content">
+            <div class="contact-header">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind? Let's create something amazing together.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info-section">
+                    <h3>Let's Connect</h3>
+                    <p>We're here to help bring your vision to life. Whether you need a stunning project, a complete ideas, or custom development work, we'd love to hear from you.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <a href="mailto:team3.ollen@gmail.com?subject=Project%20Inquiry&body=Hello%20Team%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20projects.">
+                                <h4>Email</h4>
+                                <p>Team3.Ollen@gmail.com</p></a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                              <a href="https://docs.google.com/forms/d/e/1FAIpQLScj5si3ZvDnmkxrwEcc2_4EZp0hX2wa2tPhJznpP6zruWVyJg/viewform?usp=dialog">
+                                <h4>Form</h4>
+                                <p> Contact with Form </p></a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text"><a href="#map-section" id="scroll-to-map">
+                                <h4>Address</h4>
+                                <p>Chandrapur-442401, Maharashtra, India</p></a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 9:00 AM - 10:00 PM PST</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Follow Us</h4>
+                        <div class="social-buttons">
+                            <a href="https://www.facebook.com/profile.php?id=61581032259205" class="social-btn" title="Facebook">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" title="Twitter">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-btn" title="LinkedIn">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://www.instagram.com/team3.ollen/" class="social-btn" title="Instagram">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-section">
+                    <!-- <form class="contact-form" onsubmit="handleSubmit(event)"> -->
+                        <img src="images/contact_img.png" alt="">
+                    <!-- </form> -->
+                </div> 
+            </div>
+        </div>
+    </section>
+
+  
+    <div class="map" id="map-section">
+      <!-- Optional: Google Maps Embed -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120000.20248888935!2d79.19313862896134!3d19.966236136134764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd2d5d164adc333%3A0x440ae57d85f01b55!2sChandrapur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1757946994619!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+</section>
+
+ <!-- 🔹 Footer Info Section (Like Amazon) -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>About Me</h4>
+        <p>Showcasing innovative engineering projects and creative ideas through Ollen.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" id="scroll-to-top">Contact</a></li>
+          <li><a href="T&C.html">T&C</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        
+        <p><!-- Simple Email Icon -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+     width="20" height="18" viewBox="0 0 24 20" 
+     fill="none" stroke="#0b63d6" stroke-width="2.5" 
+     stroke-linecap="round" stroke-linejoin="round"
+     aria-hidden="true">
+  <rect x="2" y="4" width="20" height="16" rx="2"/>
+  <path d="M2 6l10 7 10-7"/>
+</svg>  <a href="mailto:team3.ollen@gmail.com?subject=Project%20Inquiry&body=Hello%20Team%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20your%20projects.">
+  Team3.Ollen@gmail.com
+</a></p>
+
+        <p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="red" viewBox="0 0 384 512">
+  <path d="M168 0C75.2 0 0 75.2 0 168c0 87.5 154.1 326.4 160.6 336.5 4.5 6.9 15.2 6.9 19.7 0C229.9 494.4 384 255.5 384 168 384 75.2 308.8 0 216 0zM192 240c-39.8 0-72-32.2-72-72s32.2-72 72-72 72 32.2 72 72-32.2 72-72 72z"/>
+</svg>
+Chandrapur-442401, Maharashtra, India.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ollen | All rights reserved.</p>
+    </div>
+  </footer>
+
+    <!-- address smooth scroll animation  -->
+  <script>
+document.getElementById("scroll-to-map").addEventListener("click", function(e) {
+  e.preventDefault();
+
+  const target = document.querySelector("#map-section");
+  const targetPosition = target.getBoundingClientRect().top + window.scrollY;
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  const duration = 1200; // in ms (make bigger = slower)
+  let start = null;
+
+  function animation(currentTime) {
+    if (start === null) start = currentTime;
+    const timeElapsed = currentTime - start;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
+});
+
+
+</script>
+
+</body>
+</html>
