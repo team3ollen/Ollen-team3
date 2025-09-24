@@ -516,7 +516,7 @@ footer {
 @media (max-width: 480px) {
   /* Navbar */
   .navbar {
-    height: 50px; /* Reduced height for compact look */
+    height: 65px; /* Reduced height for compact look */
     padding: 0 10px;
     position: sticky;
     top: 0;
@@ -731,6 +731,7 @@ footer {
     padding: 10px;
   }
 }
+
 
 
 
