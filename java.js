@@ -117,3 +117,23 @@ document.addEventListener('DOMContentLoaded', () => {
     navRight.classList.toggle('active');
   });
 });
+
+function toggleNavLink() {
+      const link = document.getElementById("switch-link");
+
+      if (window.innerWidth <= 768) {
+        // Mobile → show About
+        link.textContent = "About";
+        link.href = "about.html";
+      } else {
+        // Desktop → show Contact
+        link.textContent = "Contact";
+        link.href = "contact.html";
+      }
+    }
+
+    // Run on page load
+    toggleNavLink();
+
+    // Run when window is resized
+    window.addEventListener("resize", toggleNavLink);
