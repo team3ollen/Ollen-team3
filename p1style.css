@@ -738,7 +738,7 @@ footer .back-btn:hover {
     }
 
   .nav-right {
-      margin-bottom: 30px;
+      margin-bottom: 8px;
     }
     
     .nav-links a::before {
@@ -835,5 +835,6 @@ footer .back-btn:hover {
   }
 
 }
+
 
 
