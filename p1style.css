@@ -736,6 +736,10 @@ footer .back-btn:hover {
         font-size: 0.75rem;
         padding: 0.4rem 0.5rem;
     }
+
+  .nav-right {
+      margin-bottom: 30px;
+    }
     
     .nav-links a::before {
         width: 20px;
@@ -831,4 +835,5 @@ footer .back-btn:hover {
   }
 
 }
+
 
