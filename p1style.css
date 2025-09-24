@@ -773,6 +773,10 @@ footer .back-btn:hover {
     text-decoration: none;
   }
 
+  header {
+    margin-top:50px;
+  }
+
   /* make hero/slider shorter on mobile so nav doesn't overlap content */
   .slider { height: 50vh; }
   .slider img { object-fit: cover; }
@@ -827,3 +831,4 @@ footer .back-btn:hover {
   }
 
 }
+
