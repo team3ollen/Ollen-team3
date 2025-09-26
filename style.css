@@ -354,7 +354,18 @@ body {
 }
 
 
-
+.projects hr {
+  border: none;
+  height: 4px; /* max height at center */
+  background: linear-gradient(to right, transparent, #4261ee, #732eb8, transparent);
+  border-radius: 50px; /* smooth taper */
+  margin: 40px 0;
+}
+@media (max-width: 600px) {
+  .projects hr {
+    margin: 10px;
+  }
+}
 
 .projects {
   /* background: url("images/contact\ background.avif") no-repeat center center/cover; */
@@ -828,6 +839,7 @@ footer {
     padding: 10px;
   }
 }
+
 
 
 
