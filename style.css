@@ -262,6 +262,11 @@ body {
   height: 80vh;
   overflow: hidden;
 }
+@media (max-width:1000px) {
+  .slider {
+    height: 35vh;
+  }
+}
 
 .slider img {
   width: 100%;
@@ -839,6 +844,7 @@ footer {
     padding: 10px;
   }
 }
+
 
 
 
