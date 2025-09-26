@@ -270,7 +270,7 @@ body {
 }
 @media (max-width:1000px) {
   .slider {
-    height: 35vh;
+    height: 30vh;
   }
 }
 
@@ -850,6 +850,7 @@ footer {
     padding: 10px;
   }
 }
+
 
 
 
