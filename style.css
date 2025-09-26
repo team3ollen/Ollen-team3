@@ -31,6 +31,12 @@ html {
   object-fit: cover;
 
 }
+@media (max-width:1000px) {
+  .logo img {
+    width: fit-content;
+    height: fit-content;
+  }
+}
 
 /* Left and right groups */
 .nav-left,
@@ -844,6 +850,7 @@ footer {
     padding: 10px;
   }
 }
+
 
 
 
