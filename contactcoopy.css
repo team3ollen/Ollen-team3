@@ -484,171 +484,170 @@
 
         
 
-        @media (max-width: 768px) {
-         :root { --bottom-nav-height: 72px; }
-         
-            /* Contact section responsive */
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 50px;
-                margin-left: 100px;
-            }
+@media (max-width: 768px) {
+    *{
+        max-width: 100%;
+    }
 
-            .contact-info-section {
-                padding-right: 0;
-            }
-
-            .contact-form-section {
-                padding-left: 0;
-            }
-        
-
-  /* keep content above the bottom nav (supports iOS safe area) */
-  body {
-    padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
+  /* prevent page horizontal overflow */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
-  /* move navbar to bottom */
-  .navbar {
-    position: fixed;      /* fixed so it stays visible while scrolling */
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: var(--bottom-nav-height);
-    background: linear-gradient(180deg, rgba(18,18,20,0.97), rgba(12,12,14,0.98));
-    border-top: 1px solid rgba(255,255,255,0.04);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 -8px 20px rgba(0,0,0,0.45);
-    z-index: 99999;
-    padding: 6px 10px;
+  /* make all media scale nicely */
+  img, svg, iframe, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 
-  /* inner layout becomes compact horizontal bar */
+  /* NAVBAR / LOGO */
   .nav-inner {
-    max-width: 100vw;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 6px;
-    padding: 0;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
   }
 
-  /* left and right groups become compact rows */
-  .nav-left,
-  .nav-right {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-  }
-  .nav-left li,
-  .nav-right li { list-style: none; margin: 0; }
-
-  /* link appearance: vertical (icon-like + label) */
-  .nav-left a,
-  .nav-right a {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    font-size: 11.5px;
-    min-width: 56px;
-    padding: 6px 6px;
-    color: #fff;
-    text-decoration: none;
-    line-height: 1;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* simple "icon" using a gradient block - replaceable with actual icons later */
-  .nav-left a::before,
-  .nav-right a::before {
-    content: "";
-    display: block;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 14px rgba(102,126,234,0.14);
-  }
-
-  /* Logo sits centered in the bar and is lifted slightly for emphasis */
+  /* center the logo and remove fixed left margin */
   .logo {
-    margin: 0;
-    width: 56px;
-    height: 56px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px;
-    border-radius: 12px;
-    transform: translateY(-18%);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
-  .logo img {
-    width: 44px;
-    height: 44px;
-    object-fit: contain;
-    display: block;
-  }
-
-  /* hide the desktop underline (saves space) */
-  .navbar a::after { display: none; }
-
-  /* dropdown content should appear above the bar (not behind it) */
-  .dropdown {
-    position: relative;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    bottom: calc(100% + 8px); /* floats above the bottom bar */
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 220px;
-    max-width: calc(100vw - 24px);
-    background: #121214;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-    z-index: 100000;
-  }
-  .dropdown:focus-within .dropdown-content,
-  .dropdown.open .dropdown-content { display: block; }
-
-  /* dropdown link styles for mobile */
-  .dropdown-content a {
-    display: block;
-    padding: 8px 12px;
-    color: #fff;
-    font-size: 14px;
-    text-decoration: none;
-  }
-  /* ensure interactive areas are easy to tap */
-  .nav-left a, .nav-right a, .dropdown-content a {
-    touch-action: manipulation;
-    -webkit-user-select: none;
-    user-select: none;
-  }
-  /* ===
-
-  /* smaller footer layout */
-  .footer-grid {
-    padding: 22px 16px;
-    gap: 14px;
+    margin: 0 auto;
+    width: 140px;
     height: auto;
   }
-  .footer-bottom { padding: 12px 8px; font-size: 0.9rem; }
+  .logo img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* reduce nav spacing and prevent wrapping overflow */
+  .nav-left, .nav-right, .nav-links {
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  /* optional: hide large right-side nav to avoid overflow.
+     If you want visible links on mobile, remove this rule and
+     implement a hamburger menu instead. */
+  .nav-right {
+    display: none;
+  }
+
+  .nav-toggle { display: block; }
+
+  /* Contact header sizing */
+  .contact-header {
+    margin-top: 30px;
+    margin-bottom: 22px;
+    padding: 0 12px;
+  }
+  .contact-header h2 { font-size: 28px; }
+  .contact-header p  { font-size: 15px; max-width: 100%; }
+
+  /* Stack contact info + form and eliminate fixed widths */
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 12px;
+    width: 100%;
+  }
+
+  .contact-info-section,
+  .contact-form-section {
+    padding: 0;
+    width: 100%;
+  }
+
+  /* Remove the fixed 500px / 700px from form area */
+  .contact-form-section {
+    width: 100% !important;
+    max-width: 560px;
+    margin: 0 auto;
+    height: auto !important;
+    border-radius: 12px;
+  }
+
+  /* Make the contact image responsive instead of fixed px height */
+  .contact-form-section img {
+    width: 100% !important;
+    max-width: 540px;
+    height: auto !important;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+  /* Shrink the top banner */
+  .contact_bg {
+    height: 28vh;
+    padding: 0.6rem 1rem;
+    background-size: cover;
+    background-position: center;
+  }
+  .contact_bg h1 { font-size: 1.6rem; top: 10px; }
+
+  /* Map iframe sizing */
+  .map iframe,
+  iframe {
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+  }
+
+  /* Contact item sizing */
+  .contact-details { gap: 14px; }
+  .contact-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 10px;
+  }
+  .contact-icon svg { width: 20px; height: 20px; }
+
+  .contact-text h4 { font-size: 15px; margin-bottom: 4px; }
+  .contact-text p  { font-size: 13px; margin: 0; }
+
+  /* Social buttons */
+  .social-buttons { gap: 10px; flex-wrap: wrap; }
+  .social-btn { width: 40px; height: 40px; }
+
+  /* Stats -> 2 columns or single column if cramped */
+  .stats-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 20px;
+  }
+  .stat-number { font-size: 32px; }
+  .stat-label  { font-size: 13px; }
+
+  /* Footer stacked */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    height: auto;
+    padding: 22px 16px;
+    gap: 20px;
+  }
+
+  /* small global font tweak to avoid accidental wrapping */
+  body { font-size: 15px; line-height: 1.45; }
 }
+
  
 
 
        
         
+
