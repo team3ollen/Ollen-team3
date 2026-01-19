@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon</title>
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    body{
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      overflow: hidden;
+      color: white;
+    }
+
+    /* background glowing circles */
+    .bg-circle{
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: float 6s infinite ease-in-out alternate;
+    }
+    .circle1{
+      width: 300px;
+      height: 300px;
+      background: #ff0080;
+      top: -80px;
+      left: -80px;
+    }
+    .circle2{
+      width: 350px;
+      height: 350px;
+      background: #00f5ff;
+      bottom: -100px;
+      right: -100px;
+      animation-delay: 1s;
+    }
+
+    @keyframes float{
+      from{ transform: translateY(0px); }
+      to{ transform: translateY(40px); }
+    }
+
+    .container{
+      position: relative;
+      padding: 40px 30px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      max-width: 650px;
+    }
+
+    h1{
+      font-size: 70px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #ff0080, #00f5ff, #ffed00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{
+        text-shadow: 0 0 10px rgba(255,0,128,0.4),
+                     0 0 20px rgba(0,245,255,0.3);
+      }
+      to{
+        text-shadow: 0 0 18px rgba(255,0,128,0.8),
+                     0 0 35px rgba(0,245,255,0.6);
+      }
+    }
+
+    p{
+      margin-top: 15px;
+      font-size: 18px;
+      opacity: 0.85;
+      line-height: 1.5;
+    }
+
+    .btn{
+      margin-top: 25px;
+      display: inline-block;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #ff0080, #00f5ff);
+      transition: 0.3s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    .btn:hover{
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+    }
+
+    /* responsive */
+    @media(max-width:600px){
+      h1{ font-size: 50px; }
+      p{ font-size: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-circle circle1"></div>
+  <div class="bg-circle circle2"></div>
+
+  <div class="container">
+    <h1>Coming Soon</h1>
+    <p>We are working on something awesome 🚀 <br> Stay tuned!</p>
+    <a href="#" class="btn">Notify Me</a>
+  </div>
+
+</body>
+</html>
