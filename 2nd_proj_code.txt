@@ -1,0 +1,135 @@
+#define BLYNK_TEMPLATE_ID "TMPL3izzS6fjK"
+#define BLYNK_TEMPLATE_NAME "Energy Meter"
+#define BLYNK_AUTH_TOKEN "PASTE_YOUR_AUTH_TOKEN"
+
+// ================= LIBRARIES =================
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+#include <Wire.h>
+#include <U8g2lib.h>
+#include "ACS712.h"
+#include <ZMPT101B.h>
+#include <EEPROM.h>
+
+// ================= WIFI =================
+char ssid[] = "YOUR_WIFI_NAME";
+char pass[] = "YOUR_WIFI_PASSWORD";
+
+// ================= OLED (SH1106) =================
+U8G2_SH1106_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, U8X8_PIN_NONE);
+
+// ================= SENSORS =================
+ACS712 ACS(34, 3.3, 4095, 125);
+ZMPT101B voltageSensor(35, 50.0);
+
+// ================= VARIABLES =================
+float unit = 0;
+int volt = 0;
+int current = 0;
+int power = 0;
+
+#define EEPROM_SIZE 512
+#define UNIT_ADDRESS 0
+
+unsigned long lastEEPROMsave = 0;
+
+// ================= BLYNK =================
+BLYNK_CONNECTED() {
+  Blynk.syncVirtual(V0);
+  Blynk.syncVirtual(V1);
+  Blynk.syncVirtual(V2);
+  Blynk.syncVirtual(V3);
+}
+
+// ================= SETUP =================
+void setup() {
+
+  Serial.begin(115200);
+
+  EEPROM.begin(EEPROM_SIZE);
+  unit = EEPROM.readFloat(UNIT_ADDRESS);
+  if (isnan(unit)) unit = 0.0;
+
+  // OLED start
+  Wire.begin(21,22);
+  u8g2.begin();
+
+  // Startup screen (SHORT)
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_ncenB08_tr);
+  u8g2.drawStr(15,30,"Energy Meter");
+  u8g2.sendBuffer();
+  delay(400);   // short startup display
+
+  // Sensor calibration
+  ACS.autoMidPoint();
+  voltageSensor.setSensitivity(500.0f);
+
+  // WiFi + Blynk
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+}
+
+// ================= LOOP =================
+void loop() {
+
+  Blynk.run();
+
+  // -------- CURRENT --------
+  float average = 0;
+  for(int i=0;i<100;i++){
+    average += ACS.mA_AC();
+  }
+
+  float mA = average / 100.0;
+  if(mA < 5) mA = 0;
+  current = mA;
+
+  // -------- VOLTAGE --------
+  float voltage = voltageSensor.getRmsVoltage();
+  if(voltage < 50) voltage = 0;
+  volt = voltage;
+
+  // -------- POWER --------
+  float watt = voltage * (mA / 1000.0);
+  power = watt;
+
+  // -------- ENERGY CALCULATION --------
+  float hours = 0.5 / 3600.0;   // loop runs every 0.5 sec
+  unit += (watt * hours) / 1000.0;
+
+  // ================= OLED DISPLAY =================
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_6x12_tr);
+
+  char line1[32];
+  sprintf(line1,"V:%dV C:%dmA",volt,current);
+  u8g2.drawStr(0,20,line1);
+
+  char line2[32];
+  sprintf(line2,"P:%dW U:%.2fkWh",power,unit);
+  u8g2.drawStr(0,40,line2);
+
+  u8g2.sendBuffer();
+
+  // ================= SERIAL MONITOR =================
+  Serial.print("Voltage: "); Serial.println(volt);
+  Serial.print("Current: "); Serial.println(current);
+  Serial.print("Power: "); Serial.println(power);
+  Serial.print("Energy: "); Serial.println(unit,4);
+
+  // ================= EEPROM SAVE (every 60 sec) =================
+  if(millis() - lastEEPROMsave > 60000){
+    EEPROM.writeFloat(UNIT_ADDRESS, unit);
+    EEPROM.commit();
+    lastEEPROMsave = millis();
+  }
+
+  // ================= BLYNK UPDATE =================
+  Blynk.virtualWrite(V0, volt);
+  Blynk.virtualWrite(V1, current);
+  Blynk.virtualWrite(V2, power);
+  Blynk.virtualWrite(V3, unit);
+
+  delay(500);
+}
