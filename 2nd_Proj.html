@@ -1,133 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon</title>
-
-  <style>
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", Arial, sans-serif;
-    }
-
-    body{
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      overflow: hidden;
-      color: white;
-    }
-
-    /* background glowing circles */
-    .bg-circle{
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.5;
-      animation: float 6s infinite ease-in-out alternate;
-    }
-    .circle1{
-      width: 300px;
-      height: 300px;
-      background: #ff0080;
-      top: -80px;
-      left: -80px;
-    }
-    .circle2{
-      width: 350px;
-      height: 350px;
-      background: #00f5ff;
-      bottom: -100px;
-      right: -100px;
-      animation-delay: 1s;
-    }
-
-    @keyframes float{
-      from{ transform: translateY(0px); }
-      to{ transform: translateY(40px); }
-    }
-
-    .container{
-      position: relative;
-      padding: 40px 30px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
-      max-width: 650px;
-    }
-
-    h1{
-      font-size: 70px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      background: linear-gradient(90deg, #ff0080, #00f5ff, #ffed00);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow{
-      from{
-        text-shadow: 0 0 10px rgba(255,0,128,0.4),
-                     0 0 20px rgba(0,245,255,0.3);
-      }
-      to{
-        text-shadow: 0 0 18px rgba(255,0,128,0.8),
-                     0 0 35px rgba(0,245,255,0.6);
-      }
-    }
-
-    p{
-      margin-top: 15px;
-      font-size: 18px;
-      opacity: 0.85;
-      line-height: 1.5;
-    }
-
-    .btn{
-      margin-top: 25px;
-      display: inline-block;
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      color: white;
-      background: linear-gradient(90deg, #ff0080, #00f5ff);
-      transition: 0.3s;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-    .btn:hover{
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-    }
-
-    /* responsive */
-    @media(max-width:600px){
-      h1{ font-size: 50px; }
-      p{ font-size: 16px; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Smart Energy Meter</title>
+  <link rel="stylesheet" href="2nd_Proj_style.css">
 </head>
-
 <body>
 
-  <div class="bg-circle circle1"></div>
-  <div class="bg-circle circle2"></div>
+<!-- Hero Section -->
+<header class="hero">
+  <h1>⚡ IoT Based Smart Energy Meter</h1>
+  <p><em>"Monitor your power, save your energy!"</em></p>
+</header>
 
-  <div class="container">
-    <h1>Coming Soon</h1>
-    <p>We are working on something awesome 🚀 <br> Stay tuned!</p>
-    <a href="#" class="btn">Notify Me</a>
+<!-- Project Overview -->
+<section class="overview">
+  <h2>🌍 About the Project</h2>
+  <p>
+    The IoT Based Smart Energy Meter is designed to monitor electrical parameters 
+    such as <b>Voltage, Current, Power (Watt), and Energy Consumption (Units)</b> in real-time.  
+    The data is sent to the <b>Blynk mobile application</b> using Wi-Fi, allowing users to track their electricity usage from anywhere.  
+    This system helps in energy management, reduces power wastage, and promotes smart energy usage.
+  </p>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+  <h2>📸 Project Gallery</h2>
+  <div class="gallery-container">
+    <div class="gallery-item slide">
+      <img src="images/Blynk_mobile.jpeg" alt="Energy Meter Setup">
+    </div>
+    <div class="gallery-item slide">
+      <img src="images/Energy_meter.jpeg" alt="Blynk Dashboard">
+    </div>
+    <div class="gallery-item slide">
+      <img src="images/Circuits.jpeg" alt="Hardware Connection">
+    </div>
+    <div class="gallery-item slide">
+      <img src="images/Monitor.jpeg" alt="Hardware Connection">
+    </div>
+  
+
+   <!-- Videos -->
+    <div class="gallery-item slide">
+      <video controls autoplay loop muted>
+        <source src="video/2nd_V1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="gallery-item slide">
+      <video controls autoplay loop muted>
+        <source src="video/2nd_V2.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="gallery-item slide">
+      <video controls autoplay loop muted>
+        <source src="video/2nd_V3.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="gallery-item slide">
+      <video controls autoplay loop muted>
+        <source src="video/2nd_V4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
   </div>
+</section>
+
+
+<!-- Video Demo -->
+<section class="video-demo">
+  <h2>🎬 Project Demo</h2>
+  <div class="video-box">
+    <iframe src="video/2nd_V1.mp4"
+      frameborder="0" allowfullscreen></iframe>
+    <p class="caption">
+      📱 Real-time monitoring of Voltage, Current, Power and Units on Blynk.
+    </p>
+  </div>
+</section>
+
+<!-- Circuit Diagram -->
+<section class="circuit">
+  <h2>🔌 Circuit Diagram</h2>
+  <p>Click the image to view full size.</p>
+  <a href="images/energy_circuit.jpg" target="_blank">
+    <img src="images/energy_circuit.jpg" class="diagram-img">
+  </a>
+</section>
+
+<!-- Features -->
+<section class="energy-features">
+  <h2>⚡ Component Description</h2>
+
+  <div class="energy-container">
+
+    <div class="energy-card">
+      <h3>ESP32</h3>
+      <p>
+        The ESP32 is the main controller of the smart energy meter. It collects data from voltage and current sensors,
+        performs calculations for power and energy consumption, and sends the data to the Blynk cloud using its built-in Wi-Fi.
+        Its high processing speed, low power consumption, and multiple ADC pins make it ideal for IoT applications.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Voltage Sensor</h3>
+      <p>
+        The voltage sensor measures the AC supply voltage and reduces it to a safe level using a voltage divider circuit.
+        The ESP32 reads this value through its ADC pin and calculates the actual voltage using a calibration factor.
+        It helps in monitoring voltage fluctuations and power quality.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Current Sensor</h3>
+      <p>
+        The current sensor measures the load current using the Hall Effect principle. It provides electrical isolation and
+        converts the current into an analog voltage signal. This value is used by the ESP32 to calculate power consumption.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Power & Energy Calculation</h3>
+      <p>
+        The ESP32 calculates electrical power using the formula <b>P = V × I</b>. Energy consumption is calculated over time
+        and displayed in units (kWh). This allows users to monitor real-time power usage and total energy consumption.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Blynk Mobile Application</h3>
+      <p>
+        The Blynk app provides a real-time dashboard where users can monitor voltage, current, power, and energy consumption
+        from anywhere using the internet. It makes the system user-friendly and remotely accessible.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Wi-Fi Connectivity</h3>
+      <p>
+        Wi-Fi enables communication between the ESP32 and the Blynk cloud server. This allows real-time data transmission,
+        making the system a complete IoT-based energy monitoring solution.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Power Supply</h3>
+      <p>
+        A regulated power supply provides stable voltage to the ESP32 and sensors. Stable power ensures accurate readings
+        and protects the system from voltage variations.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Relay Module (Optional)</h3>
+      <p>
+        The relay module allows remote control of electrical appliances through the Blynk app. It can also be used for
+        overload protection and smart energy management.
+      </p>
+    </div>
+
+    <div class="energy-card">
+      <h3>Breadboard & Jumper Wires</h3>
+      <p>
+        Breadboard and jumper wires are used for prototyping and connecting all components without soldering.
+        They allow easy testing, modification, and debugging of the circuit.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Components -->
+<section class="components">
+  <h2>🔧 Components Used</h2>
+  <div class="component-list">
+
+    <div class="component">
+      <img src="images/ESP32.jpg">
+      <h3>ESP32</h3>
+      <p>Main controller with Wi-Fi.</p>
+    </div>
+
+    <div class="component">
+      <img src="images/ZMPT101B-Arduino-Module.webp">
+      <h3>Voltage Sensor</h3>
+      <p>Measures supply voltage.</p>
+    </div>
+
+    <div class="component">
+      <img src="images/Current sensor.webp">
+      <h3>Current Sensor</h3>
+      <p>Measures load current.</p>
+    </div>
+
+    <div class="component">
+      <img src="images/Blynk_mobile_app.jpeg">
+      <h3>Blynk App</h3>
+      <p>Mobile monitoring dashboard.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Made with ⚡ for Smart Energy Monitoring</p>
+  <a href="index.html" class="back-btn">⬅ Back to Home</a>
+</footer>
 
 </body>
 </html>
